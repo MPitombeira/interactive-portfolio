@@ -3,28 +3,29 @@
 import { usePath } from "@/context/PathContext";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/lib/translations";
+import { useXP } from "@/context/XPContext";
 
 export default function About() {
   const { path } = usePath();
 
   const classes: any = {
-    frontend: "Frontend Warrior",
-    solver: "Logic Mage",
-    creative: "Creative Bard",
+    pyromancer: "Pyromancer",
+    knight: "Knight",
+    cleric: "Cleric",
   };
 
   const stats: any = {
-    frontend: {
+    pyromancer: {
       UI: 9,
       UX: 8,
       Performance: 7,
     },
-    solver: {
+    knight: {
       Logic: 9,
       ProblemSolving: 10,
       Algorithms: 8,
     },
-    creative: {
+    cleric: {
       Design: 9,
       Creativity: 10,
       Animation: 8,
@@ -34,20 +35,22 @@ export default function About() {
   const { language } = useLanguage();
   const t = translations[language];
   const colors: any = {
-    frontend: "bg-red-500",
-    solver: "bg-blue-500",
-    creative: "bg-green-500",
+    pyromancer: "bg-red-500",
+    knight: "bg-blue-500",
+    cleric: "bg-green-500",
   };
 
-    const level = 12;
-    const currentXP = 1200;
-    const maxXP = 2000;
 
-    const xpPercentage = (currentXP / maxXP) * 100;
+    const { xp } = useXP();
+    const level = Math.floor(xp / 500) + 1;
+    const xpPercentage = (xp % 500) / 500 * 100;
+
+    const maxXP = 1000;
+
     const xpColors: any = {
-    frontend: "bg-red-400",
-    solver: "bg-blue-400",
-    creative: "bg-green-400",
+    pyromancer: "bg-red-400",
+    knight: "bg-blue-400",
+    cleric: "bg-green-400",
     };
 
   return (
@@ -57,9 +60,9 @@ export default function About() {
       <div className="mb-6">
         <div
           className={`w-75 h-75 rounded-none border-4 flex items-center justify-center overflow-hidden
-      ${path === "frontend" && "border-red-500 shadow-[0_0_25px_rgba(255,0,0,0.6)]"}
-      ${path === "solver" && "border-blue-500 shadow-[0_0_25px_rgba(0,0,255,0.6)]"}
-      ${path === "creative" && "border-green-500 shadow-[0_0_25px_rgba(0,255,0,0.6)]"}
+      ${path === "pyromancer" && "border-red-500 shadow-[0_0_25px_rgba(255,0,0,0.6)]"}
+      ${path === "knight" && "border-blue-500 shadow-[0_0_25px_rgba(0,0,255,0.6)]"}
+      ${path === "cleric" && "border-green-500 shadow-[0_0_25px_rgba(0,255,0,0.6)]"}
       ${!path && "border-white"}
       hover:scale-105 transition-transform duration-300
     `}
@@ -91,7 +94,7 @@ export default function About() {
             {t.level} {level}
           </span>
           <span>
-            {currentXP} / {maxXP} XP
+            {xp} / {maxXP} XP
           </span>
         </div>
         <div className="w-full bg-gray-800 h-4 rounded">

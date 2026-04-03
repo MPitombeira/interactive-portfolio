@@ -26,7 +26,21 @@ export const translations = {
     },
     level: "Nível",
     xp: "XP",
-      // 
+    // 
+
+    // projects 
+    quests: "Quests",
+    status: "Status",
+    completed: "Completed",
+    inProgress: "In Progress",
+    //
+
+    // contacts
+    summon: "Summon Sign",
+    copied: "copied to clipboard",
+    contactText:
+      "If you seek collaboration, opportunities, or wish to connect, you may summon me through the channels below.",
+    //
   },
   ptbr: {
     // menus
@@ -35,7 +49,7 @@ export const translations = {
     contact: "Contato",
     levelUp: "Subir de Nivel",
     travel: "Viajar",
-    summon: "Contato",
+    summon: "Invocar",
     // 
 
     //  about 
@@ -55,7 +69,20 @@ export const translations = {
     },
     level: "Level",
     xp: "XP",
+    //
 
+    // projects
+    quests: "Missões",
+    status: "Status",
+    completed: "Concluído",
+    inProgress: "Em Progresso",
+    //
+
+    // contacts
+    summon: "Sinal de Invocação",
+    copied: "copiado para a área de transferência",
+    contactText:
+      "Se você busca colaboração, oportunidades ou deseja entrar em contato, você pode me invocar pelos canais abaixo:",
     //
   },
 };

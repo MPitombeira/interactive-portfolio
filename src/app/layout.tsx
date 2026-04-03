@@ -4,6 +4,7 @@ import BonfireMenu from "@/components/BonfireMenu";
 import ThemeWrapper from "@/components/ThemeWrapper";
 import { TransitionProvider } from "@/context/TransitionContext";
 import { LanguageProvider } from "@/context/LanguageContext";
+import { XPProvider } from "@/context/XPContext";
 
 export default function RootLayout({
   children,
@@ -13,16 +14,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-      <LanguageProvider>
-        <PathProvider>
-          <TransitionProvider>
-            <ThemeWrapper>
-              {children}
-              <BonfireMenu />
-            </ThemeWrapper>
-          </TransitionProvider>
-        </PathProvider>
-      </LanguageProvider>
+        <XPProvider>
+          <LanguageProvider>
+            <PathProvider>
+              <TransitionProvider>
+                <ThemeWrapper>
+                  {children}
+                  <BonfireMenu />
+                </ThemeWrapper>
+              </TransitionProvider>
+            </PathProvider>
+          </LanguageProvider>
+        </XPProvider>
       </body>
     </html>
   );

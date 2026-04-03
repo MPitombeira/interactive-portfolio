@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useState } from "react";
 
-type PathType = "frontend" | "solver" | "creative" | null;
+type PathType = "pyromancer" | "knight" | "cleric" | null;
 
 type PathContextType = {
   path: PathType;

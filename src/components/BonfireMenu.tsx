@@ -9,15 +9,16 @@ import AmbientSound from "./AmbientSound";
 import { useTransition } from "@/context/TransitionContext";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/lib/translations";
+import BonfireSmoke from "./BonfireSmoke";
 
 export default function BonfireMenu() {
     const [open, setOpen] = useState(false);
     const { navigate } = useTransition();
     const { path } = usePath();
     const themes: any = {
-        frontend: "text-red-500 border-red-500",
-        solver: "text-blue-400 border-blue-400",
-        creative: "text-green-400 border-green-400",
+        pyromancer: "text-red-500 border-red-500",
+        knight: "text-blue-400 border-blue-400",
+        cleric: "text-green-400 border-green-400",
     };
     const { language } = useLanguage();
     const t = translations[language];
@@ -28,29 +29,30 @@ export default function BonfireMenu() {
       {/* BOTÃO BONFIRE */}
       <div className="fixed bottom-6 right-6 z-50">
         <div
-          className={`relative flex items-center justify-center rounded-full p-2 transition-all duration-300
+          className={`hover:shadow-[0_0_40px_rgba(255,140,0,1)] relative flex items-center justify-center rounded-full p-2 transition-all duration-300 animate-[firePulse_2s_infinite]
                 ${
-                  path === "frontend" &&
+                  path === "pyromancer" &&
                   "border border-red-500 shadow-[0_0_20px_rgba(255,0,0,0.6)]"
                 }
                 ${
-                  path === "solver" &&
+                  path === "knight" &&
                   "border border-blue-500 shadow-[0_0_20px_rgba(0,0,255,0.6)]"
                 }
                 ${
-                  path === "creative" &&
+                  path === "cleric" &&
                   "border border-green-500 shadow-[0_0_20px_rgba(0,255,0,0.6)]"
                 }
-                ${!path && "border border-white"}
+                ${!path && "text-white border-black shadow-[0_0_20px_rgba(255,140,0,0.7)]"}
                 `}
         >
-          <FireParticles />
+          <FireParticles path={path} />
+          <BonfireSmoke />
 
           <button onClick={() => setOpen(!open)}>
             <img
               src="/images/bonfire.gif"
               alt="bonfire"
-              className="w-14 h-14 object-contain hover:scale-110 transition"
+              className="w-14 h-14 object-contain hover:scale-110 transition "
             />
           </button>
         </div>
@@ -104,7 +106,7 @@ export default function BonfireMenu() {
               <button
                 onClick={() => {
                   setOpen(false);
-                  setTimeout(() => navigate("/contacts"), 200);
+                  setTimeout(() => navigate("/contact"), 200);
                 }}
               >
                 {t.summon}
