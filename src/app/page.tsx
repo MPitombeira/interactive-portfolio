@@ -6,11 +6,14 @@ import ChoosePath from "@/components/ChoosePath";
 import { usePath } from "@/context/PathContext";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import FogTransition from "@/components/FogTransition";
 
 export default function Home() {
   const [started, setStarted] = useState(false);
   const { path, setPath } = usePath();
-  
+  const router = useRouter();
+  const [fogActive, setFogActive] = useState(false);
+
   const themes: any = {
     pyromancer: "text-red-500",
     knight: "text-blue-400",
@@ -21,7 +24,6 @@ export default function Home() {
     pyromancer: "Master of creative flames and UI.",
     cleric: "A summoner of connections and communication."
   };
-  const router = useRouter();
   const [burst, setBurst] = useState(false);
 
   useEffect(() => {
@@ -30,12 +32,20 @@ export default function Home() {
 
   return (
     <main
-      className={`h-screen flex flex-col items-center justify-center bg-[#0d0d0d] ${
+      className={`h-screen flex flex-col items-center justify-center bg-gradient-to-b from-black via-zinc-900 to-black ${
         path ? themes[path] : "text-white"
       }`}
     >
       {!started ? (
         <>
+          {/* <div className="mb-5 flex justify-center ">
+            <img
+              src="/images/title.png"
+              alt="title"
+              className=" object-contain "
+            />
+          </div> */}
+
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -44,9 +54,8 @@ export default function Home() {
             Mateus Pitombeira Portfolio
           </motion.h1>
 
-          <motion.p className="mt-4 text-gray-400">
-            Press Start
-          </motion.p>
+          <motion.p className="mt-4 text-gray-400">This is a portfolio website inspired by Dark Souls</motion.p>
+
 
           <motion.button
             onClick={() => setStarted(true)}
@@ -54,31 +63,43 @@ export default function Home() {
             whileTap={{ scale: 0.95 }}
             className="mt-8 px-6 py-3 border border-white rounded-md hover:bg-white hover:text-black transition"
           >
-            START
+            NEW GAME
           </motion.button>
         </>
       ) : !path ? (
-        <ChoosePath setPath={setPath} />
+        <ChoosePath
+          setPath={setPath}
+          onPathSelected={(selectedPath) => {
+            setPath(selectedPath);
+            setFogActive(true);
+
+            setTimeout(() => {
+              router.push("/hub");
+            }, 1800);
+          }}
+        />
       ) : (
         <div className="flex flex-col items-center gap-4">
-          <h2 className="text-4xl font-bold">
+          {/* <h2 className="text-4xl font-bold">
             You have chosen the class of the {path}.
           </h2>
           <p className="text-gray-400 mt-2">
             {path && classDescriptions[path]}
-          </p>
+          </p> */}
 
-
-          <button
+          {/* <button
             onClick={() => {
-              if (path === "pyromancer") router.push("/projects");
-              if (path === "knight") router.push("/about");
-              if (path === "cleric") router.push("/contact");
+              setTransition(true);
+
+              setTimeout(() => {
+                router.push("/hub");
+              }, 800);
             }}
             className="mt-4 px-4 py-2 border rounded hover:bg-white hover:text-black transition"
           >
             Continue
-          </button>
+          </button> */}
+          <FogTransition active={fogActive} />
         </div>
       )}
     </main>

@@ -97,8 +97,7 @@ export const translations = {
     goals: "Objetivo",
     goalsText: `Atualmente estou em busca de oportunidades onde eu possa contribuir para projetos relevantes, colaborar com equipes talentosas e continuar evoluindo como desenvolvedor.`,
     beyondCode: "Alem do Código",
-    beyondCodeText: `Outside of coding, I enjoy games, mostly single-player (especially Souls-like), music, hiking and exploring creative ideas that can later become projects.`,
-    //
+    beyondCodeText: `Além de codar, gosto de jogar, principalmente jogos single-player (especialmente Souls-like), música, caminhadas e exploração de ideias criativas que mais tarde podem se tornar projetos divertidos.`,
     //
 
     // projects
