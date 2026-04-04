@@ -96,3 +96,8 @@ body {
 .animate-summon {
   animation: summonGlow 3s ease-in-out infinite;
 }
+
+@font-face {
+  font-family: "Optimus";
+  src: url("/fonts/optimusprinceps/OptimusPrinceps.ttf") format("truetype");
+}

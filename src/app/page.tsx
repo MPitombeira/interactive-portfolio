@@ -26,45 +26,56 @@ export default function Home() {
   };
   const [burst, setBurst] = useState(false);
 
+  const playClick = () => {
+    const audio = new Audio("/sounds/dark-souls-item-get.mp3");
+    audio.volume = 0.4;
+    audio.play();
+  };
+
+
   useEffect(() => {
   setPath(null);
 }, []);
 
   return (
     <main
-      className={`h-screen flex flex-col items-center justify-center bg-gradient-to-b from-black via-zinc-900 to-black ${
+      className={`min-h-screen bg-black flex flex-col items-center justify-center ${
         path ? themes[path] : "text-white"
       }`}
     >
       {!started ? (
         <>
-          {/* <div className="mb-5 flex justify-center ">
-            <img
-              src="/images/title.png"
-              alt="title"
-              className=" object-contain "
-            />
-          </div> */}
-
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
+            className="text-5xl md:text-7xl font-[Optimus] tracking-widest text-white"
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-7xl font-bold tracking-wide"
+            transition={{ duration: 1.2 }}
           >
-            Mateus Pitombeira Portfolio
+            MATEUS PITOMBEIRA PORTFOLIO
           </motion.h1>
 
-          <motion.p className="mt-4 text-gray-400">This is a portfolio website inspired by Dark Souls</motion.p>
-
-
-          <motion.button
-            onClick={() => setStarted(true)}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            className="mt-8 px-6 py-3 border border-white rounded-md hover:bg-white hover:text-black transition"
+          <motion.p
+            className="mt-4 text-gray-400 font-[Optimus]"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.2 }}
           >
-            NEW GAME
-          </motion.button>
+            THIS IS A PORTFOLIO WEBSITE INSPIRED BY DARK SOULS
+          </motion.p>
+
+          <button
+            onClick={() => {
+              setStarted(true);
+              playClick();
+            }}
+            className="mt-10 text-lg tracking-widest text-gray-300 
+            hover:text-white transition duration-300 font-[Optimus]"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.5 }}
+          >
+            PRESS ANY KEY
+          </button>
         </>
       ) : !path ? (
         <ChoosePath
