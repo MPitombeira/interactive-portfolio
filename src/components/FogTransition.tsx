@@ -21,12 +21,12 @@ export default function FogTransition({ active }: Props) {
             autoPlay
             muted
             playsInline
-            className="w-full h-full object-cover opacity-60"
+            className="absolute inset-0 w-full h-full object-cover scale-110"
           >
             <source src="/videos/fog.mp4" type="video/mp4" />
           </video>
 
-            <div className="absolute inset-0 bg-black/50" />
+            <div className="absolute inset-0 overflow-hidden" />
         </motion.div>
       )}
     </AnimatePresence>
