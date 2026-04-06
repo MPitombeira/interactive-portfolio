@@ -4,6 +4,7 @@ import { usePath } from "@/context/PathContext";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/lib/translations";
 import { useXP } from "@/context/XPContext";
+import ReturnToBonfireButton from "@/components/ReturnToBonfireButton";
 
 export default function About() {
   const { path } = usePath();
@@ -232,6 +233,7 @@ export default function About() {
           ></iframe>
         </div>
       </div>
+      <ReturnToBonfireButton />
     </div>
   );
 }

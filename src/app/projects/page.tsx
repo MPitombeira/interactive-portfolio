@@ -4,6 +4,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/lib/translations";
 import { useEffect, useState } from "react";
 import { useXP } from "@/context/XPContext";
+import ReturnToBonfireButton from "@/components/ReturnToBonfireButton";
 
 export default function Projects() {
   const { language } = useLanguage();
@@ -83,6 +84,7 @@ export default function Projects() {
           </div>
         ))}
       </div>
+      <ReturnToBonfireButton />
     </div>
   );
 }

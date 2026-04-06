@@ -1,10 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import FogTransition from "@/components/FogTransition";
 import { useRouter } from "next/navigation";
 import { useTransition } from "@/context/TransitionContext";
+import { useSearchParams } from "next/navigation";
 
 export default function Home() {
   const [stage, setStage] = useState<"start" | "bonfire">("start");
@@ -19,6 +20,7 @@ export default function Home() {
   const holdTimer = useRef<NodeJS.Timeout | null>(null);
   const holdInterval = useRef<NodeJS.Timeout | null>(null);
   const { navigate } = useTransition();
+  const searchParams = useSearchParams();
 
   const playClick = () => {
     const audio = new Audio("/sounds/dark-souls-item-get.mp3");
@@ -28,7 +30,7 @@ export default function Home() {
 
   const playBonfire = () => {
     try {
-      const audio = new Audio("/sounds/bonfireLit.mp3");
+      const audio = new Audio("/sounds/new-area2.mp3");
       audio.volume = 0.3;
       audio.play().catch(() => {});
     } catch {
@@ -115,6 +117,47 @@ export default function Home() {
       holdInterval.current = null;
     }
   };
+
+  const playRestSound = () => {
+    try {
+      const audio = new Audio("/sounds/bonfireLit.mp3");
+      audio.volume = 0.35;
+      audio.play().catch(() => {});
+    } catch {
+      console.log("rest sound failed");
+    }
+  };
+
+  useEffect(() => {
+    if (!bonfireLit) return;
+
+    const audio = new Audio("/sounds/Bonfire_Lit_Ambient_No_copyright.mp3");
+    audio.loop = true;
+    audio.volume = 0.1;
+
+    const timeout = setTimeout(() => {
+      audio.play().catch(() => {});
+    }, 1500); // delay aqui
+
+    return () => {
+      clearTimeout(timeout);
+      audio.pause();
+    };
+  }, [bonfireLit]);
+
+  useEffect(() => {
+  const state = searchParams.get("state");
+
+  if (state === "bonfire") {
+    setStage("bonfire");
+    setBonfireLit(true);
+    setShowMenu(false);
+    setShowPaths(true);
+    setShowBonfireText(false);
+    setIsHolding(false);
+    setHoldProgress(0);
+  }
+}, [searchParams]);
 
   return (
     <main className="min-h-screen overflow-hidden bg-black text-white flex flex-col items-center justify-center">
@@ -266,6 +309,7 @@ export default function Home() {
               <div className="mb-6 flex flex-col items-center gap-4 font-[Optimus] tracking-[0.15em]">
                 <button
                   onClick={() => {
+                    playRestSound();
                     setFogActive(true);
 
                     setTimeout(() => {
@@ -294,68 +338,73 @@ export default function Home() {
 
           {showPaths && (
             <>
-            <div className="absolute inset-0 z-20">
-              {/* Projects / topo */}
-              <motion.button
-                initial={{ opacity: 0, y: -20 }}
+              <div className="absolute inset-0 z-20">
+                {/* Projects / topo */}
+                <motion.button
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1.2, ease: "easeOut" }}
+                  whileHover={{ scale: 1.08 }}
+                  className="absolute top-[18%] left-1/2 -translate-x-1/2 font-[Optimus] tracking-[0.2em] text-gray-300 transition hover:tracking-[0.3em] hover:text-yellow-300"
+                  onClick={() => {
+                    setTimeout(() => navigate("/projects"), 200);
+                  }}
+                >
+                  TRAVERSE THE FOG
+                </motion.button>
+
+                {/* About / esquerda */}
+                <motion.button
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 1.2, ease: "easeOut" }}
+                  whileHover={{ scale: 1.08 }}
+                  className="absolute left-[12%] top-[58%] -translate-y-1/2 font-[Optimus] tracking-[0.2em] text-gray-300 transition hover:tracking-[0.3em] hover:text-yellow-300"
+                  onClick={() => {
+                    setTimeout(() => navigate("/about"), 200);
+                  }}
+                >
+                  ASHEN JOURNAL
+                </motion.button>
+
+                {/* Contact / direita */}
+                <motion.button
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 1.2, ease: "easeOut" }}
+                  whileHover={{ scale: 1.08 }}
+                  className="absolute right-[12%] top-[58%] -translate-y-1/2 font-[Optimus] tracking-[0.2em] text-gray-300 transition hover:tracking-[0.3em] hover:text-yellow-300"
+                  onClick={() => {
+                    setTimeout(() => navigate("/contact"), 200);
+                  }}
+                >
+                  SUMMON SIGN
+                </motion.button>
+              </div>
+
+              {/* botão separado e centralizado */}
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="absolute top-[18%] left-1/2 -translate-x-1/2 font-[Optimus] tracking-[0.2em] text-gray-300 hover:text-white transition"
-                onClick={() => {
-                  setTimeout(() => navigate("/projects"), 200);
-                }}
+                transition={{ duration: 0.8, delay: 1 }}
+                className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20"
               >
-                TRAVERSE THE FOG
-              </motion.button>
+                <button
+                  className="font-[Optimus] text-sm tracking-[0.2em] text-gray-500 hover:text-white transition"
+                  onClick={() => {
+                    setFogActive(true);
 
-              {/* About / esquerda */}
-              <motion.button
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.5 }}
-                className="absolute left-[12%] top-[58%] -translate-y-1/2 font-[Optimus] tracking-[0.2em] text-gray-300 hover:text-white transition"
-                onClick={() => {
-                  setTimeout(() => navigate("/about"), 200);
-                }}
-              >
-                ASHEN JOURNAL
-              </motion.button>
-
-              {/* Contact / direita */}
-              <motion.button
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.8 }}
-                className="absolute right-[12%] top-[58%] -translate-y-1/2 font-[Optimus] tracking-[0.2em] text-gray-300 hover:text-white transition"
-                onClick={() => {
-                  setTimeout(() => navigate("/contact"), 200);
-                }}
-              >
-                SUMMON SIGN
-              </motion.button>
-            </div>
-
-            {/* botão separado e centralizado */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1 }}
-              className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20"
-            >
-              <button className="font-[Optimus] text-sm tracking-[0.2em] text-gray-500 hover:text-white transition"
-              onClick={() => {
-              setFogActive(true);
-
-              setTimeout(() => {
-                setFogActive(false);
-                setShowPaths(false);
-                setShowMenu(true);
-              }, 1200);
-            }}>
-                LEAVE BONFIRE
-              </button>
-            </motion.div>
-              </>
+                    setTimeout(() => {
+                      setFogActive(false);
+                      setShowPaths(false);
+                      setShowMenu(true);
+                    }, 1200);
+                  }}
+                >
+                  LEAVE BONFIRE
+                </button>
+              </motion.div>
+            </>
           )}
 
           <FogTransition active={fogActive} />

@@ -5,6 +5,7 @@ import { MdEmail } from "react-icons/md";
 import { useState, useEffect } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/lib/translations";
+import ReturnToBonfireButton from "@/components/ReturnToBonfireButton";
 
 export default function Contact() {
 
@@ -90,6 +91,7 @@ export default function Contact() {
           </a>
         </div>
       </div>
+      <ReturnToBonfireButton />
     </div>
   );
 }
