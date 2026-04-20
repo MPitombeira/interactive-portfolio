@@ -3,19 +3,14 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import FogTransition from "@/components/FogTransition";
+import { playSound } from "@/lib/sound";
 
 export default function ReturnToBonfireButton() {
   const router = useRouter();
   const [fogActive, setFogActive] = useState(false);
 
   const handleReturn = () => {
-    try {
-      const audio = new Audio("/sounds/bonfireLit.mp3");
-      audio.volume = 0.3;
-      audio.play().catch(() => {});
-    } catch {
-      console.log("return sound failed");
-    }
+    playSound("/sounds/bonfireLit.mp3", 0.3);
 
     setFogActive(true);
 

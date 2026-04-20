@@ -1,6 +1,6 @@
 import "./globals.css";
 import { PathProvider } from "@/context/PathContext";
-import BonfireMenu from "@/components/BonfireMenu";
+import UIOverlay from "@/components/UIOverlay";
 import ThemeWrapper from "@/components/ThemeWrapper";
 import { TransitionProvider } from "@/context/TransitionContext";
 import { LanguageProvider } from "@/context/LanguageContext";
@@ -20,7 +20,7 @@ export default function RootLayout({
               <TransitionProvider>
                 <ThemeWrapper>
                   {children}
-                  <BonfireMenu />
+                  <UIOverlay />
                 </ThemeWrapper>
               </TransitionProvider>
             </PathProvider>

@@ -6,6 +6,7 @@ import FogTransition from "@/components/FogTransition";
 import { useRouter } from "next/navigation";
 import { useTransition } from "@/context/TransitionContext";
 import { useSearchParams } from "next/navigation";
+import { playSound } from "@/lib/sound";
 
 export default function Home() {
   const [stage, setStage] = useState<"start" | "bonfire">("start");
@@ -23,19 +24,11 @@ export default function Home() {
   const searchParams = useSearchParams();
 
   const playClick = () => {
-    const audio = new Audio("/sounds/dark-souls-item-get.mp3");
-    audio.volume = 0.4;
-    audio.play().catch(() => {});
+    playSound("/sounds/dark-souls-item-get.mp3", 0.35);
   };
 
   const playBonfire = () => {
-    try {
-      const audio = new Audio("/sounds/new-area2.mp3");
-      audio.volume = 0.3;
-      audio.play().catch(() => {});
-    } catch {
-      console.log("audio failed");
-    }
+    playSound("/sounds/new-area2.mp3", 0.3);
   };
 
   const resetBonfireState = () => {
@@ -119,31 +112,31 @@ export default function Home() {
   };
 
   const playRestSound = () => {
-    try {
-      const audio = new Audio("/sounds/bonfireLit.mp3");
-      audio.volume = 0.35;
-      audio.play().catch(() => {});
-    } catch {
-      console.log("rest sound failed");
-    }
+    playSound("/sounds/bonfireLit.mp3", 0.3);
   };
 
-  useEffect(() => {
-    if (!bonfireLit) return;
+  const ambientRef = useRef<HTMLAudioElement | null>(null);
 
-    const audio = new Audio("/sounds/Bonfire_Lit_Ambient_No_copyright.mp3");
-    audio.loop = true;
-    audio.volume = 0.1;
+useEffect(() => {
+  if (!bonfireLit) return;
 
-    const timeout = setTimeout(() => {
+  const audio = new Audio("/sounds/Bonfire_Lit_Ambient_No_copyright.mp3");
+  audio.loop = true;
+  audio.volume = 0.1;
+  ambientRef.current = audio;
+
+  const timeout = setTimeout(() => {
+    if (!(window as any).isMuted) {
       audio.play().catch(() => {});
-    }, 1500); // delay aqui
+    }
+  }, 1500);
 
-    return () => {
-      clearTimeout(timeout);
-      audio.pause();
-    };
-  }, [bonfireLit]);
+  return () => {
+    clearTimeout(timeout);
+    audio.pause();
+    audio.currentTime = 0;
+  };
+}, [bonfireLit]);
 
   useEffect(() => {
   const state = searchParams.get("state");
@@ -167,7 +160,7 @@ export default function Home() {
             className="text-5xl md:text-7xl font-[Optimus] tracking-widest text-white text-center"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2 }}
+            transition={{ duration: 1.4 }}
           >
             MATEUS PITOMBEIRA
           </motion.h1>
@@ -303,7 +296,7 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, ease: "easeOut" }}
+              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
               className="absolute bottom-20 z-20 flex flex-col items-center"
             >
               <div className="mb-6 flex flex-col items-center gap-4 font-[Optimus] tracking-[0.15em]">
@@ -364,7 +357,7 @@ export default function Home() {
                     setTimeout(() => navigate("/about"), 200);
                   }}
                 >
-                  ASHEN JOURNAL
+                  VIEW CHARACTER
                 </motion.button>
 
                 {/* Contact / direita */}
