@@ -11,13 +11,11 @@ export const translations = {
     //
 
     //about
-    aboutText: `I'm a Backend Developer with experience in PHP, MySQL, JavaScript and React, focused on building and maintaining modern, reliable web applications with a strong emphasis on user experience.
+    aboutText: `I'm a Backend Developer with experience in PHP, MySQL, JavaScript and React, focused on building and maintaining modern, reliable web applications with a strong emphasis on user experience. `,
+    aboutText1: "I have worked across both back-end and front-end development, implementing features, creating responsive interfaces, integrating APIs, and contributing to scalable solutions.",
+    aboutText2: "For four years at RadiusNet, I contributed to the maintenance and evolution of a management system for internet service providers, using PHP, Yii Framework, and MySQL. My work included bug fixing, feature improvements, and ongoing application support.",
+    aboutText3: "Prior to that, I worked at 2U, where I was responsible for maintaining and improving multiple web systems.",
 
-      I have worked across both back-end and front-end development, implementing features, creating responsive interfaces, integrating APIs, and contributing to scalable solutions.
-
-      For four years at RadiusNet, I contributed to the maintenance and evolution of a management system for internet service providers, using PHP, Yii Framework, and MySQL. My work included bug fixing, feature improvements, and ongoing application support.
-
-      Prior to that, I worked at 2U, where I was responsible for maintaining and improving multiple web systems.`,
     stats: {
       UI: "UI",
       UX: "UX",
@@ -41,6 +39,8 @@ export const translations = {
             growing as a developer.`,
     beyondCode: "Beyond Code",
     beyondCodeText: `Outside of coding, I enjoy games, mostly single-player (especially Souls-like), music, hiking and exploring creative ideas that can later become projects.`,
+    visualArt: "Original artwork created by",
+
     //
 
     // projects
@@ -69,13 +69,11 @@ export const translations = {
 
     //  about
     character: "Personagem",
-    aboutText: `Sou um Desenvolvedor Backend com experiência em PHP, MySQL, JavaScript e React, focado em construir e manter aplicações web modernas e confiáveis, com forte atenção à experiência do usuário.
+    aboutText: "Sou um Desenvolvedor Backend com experiência em PHP, MySQL, JavaScript e React, focado em construir e manter aplicações web modernas e confiáveis, com forte atenção à experiência do usuário.",
+    aboutText1: "Tenho experiência atuando tanto no back-end quanto no front-end, implementando funcionalidades, criando interfaces responsivas, integrando APIs e contribuindo para soluções escaláveis.",
 
-      Tenho experiência atuando tanto no back-end quanto no front-end, implementando funcionalidades, criando interfaces responsivas, integrando APIs e contribuindo para soluções escaláveis.
-
-      Durante quatro anos na RadiusNet, trabalhei na manutenção e evolução de um sistema de gestão para provedores de internet, utilizando PHP, Yii Framework e MySQL. Minhas atividades incluíam correção de bugs, melhorias e suporte contínuo da aplicação.
-
-      Antes disso, trabalhei na 2U, onde fui responsável pela manutenção e evolução de diversos sistemas web.`,
+    aboutText2: "Durante quatro anos na RadiusNet, trabalhei na manutenção e evolução de um sistema de gestão para provedores de internet, utilizando PHP, Yii Framework e MySQL. Minhas atividades incluíam correção de bugs, melhorias e suporte contínuo da aplicação.",
+    aboutText3: "Antes disso, trabalhei na 2U, onde fui responsável pela manutenção e evolução de diversos sistemas web.",
 
     stats: {
       UI: "Interface",
@@ -98,6 +96,7 @@ export const translations = {
     goalsText: `Atualmente estou em busca de oportunidades onde eu possa contribuir para projetos relevantes, colaborar com equipes talentosas e continuar evoluindo como desenvolvedor.`,
     beyondCode: "Alem do Código",
     beyondCodeText: `Além de codar, gosto de jogar, principalmente jogos single-player (especialmente Souls-like), música, caminhadas e exploração de ideias criativas que mais tarde podem se tornar projetos divertidos.`,
+    visualArt: "Arte original criada por",
     //
 
     // projects

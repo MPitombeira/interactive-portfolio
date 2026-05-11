@@ -116,8 +116,17 @@ export default function About() {
 
       <div className="min-h-screen text-white px-6 py-12 flex flex-col items-center">
         {/* INTRO */}
-        <p className="text-gray-300 max-w-2xl text-center mb-10 leading-relaxed whitespace-pre-line">
+        <p className="text-gray-300 max-w-2xl mb-10">
           {t.aboutText}
+        </p>
+        <p className="text-gray-300 max-w-2xl mb-10">
+          {t.aboutText1}
+        </p>
+        <p className="text-gray-300 max-w-2xl mb-10">
+          {t.aboutText2}
+        </p>
+        <p className="text-gray-300 max-w-2xl mb-10">
+          {t.aboutText3}
         </p>
 
         {/* EXPERIÊNCIA */}
@@ -196,6 +205,15 @@ export default function About() {
                   />
                   React Native
                 </span>
+
+                
+                <span className="flex items-center gap-2">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dotnetcore/dotnetcore-original.svg"
+                    className="w-10 h-10 object-contain"
+                  />
+                  .NET Core
+                </span>
               </div>
             </div>
           </ul>
@@ -231,6 +249,21 @@ export default function About() {
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
             loading="lazy"
           ></iframe>
+        </div>
+
+        {/* Creditos pro goat */}
+        <div className="max-w-2xl w-full mt-12">
+          <h2 className="text-2xl mb-4 text-yellow-400">Visuals & Art</h2>
+            <p className="text-gray-300 leading-relaxed">
+              {t.visualArt}{" "}
+              <a
+                href="LINK_DO_ARTISTA"
+                target="_blank"
+                className="text-yellow-300 hover:text-yellow-200 transition"
+              >
+                DE ALMEIDA
+              </a>.
+            </p>  
         </div>
       </div>
       <ReturnToBonfireButton />
