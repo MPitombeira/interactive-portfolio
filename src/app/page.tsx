@@ -218,8 +218,9 @@ useEffect(() => {
               }}
               className="pointer-events-none absolute inset-0 z-30 flex items-center justify-center"
             >
-              <h2 className="font-[Optimus] text-5xl md:text-8xl tracking-[0.25em] text-yellow-200 drop-shadow-[0_0_20px_rgba(255,200,120,0.8)]">
-                BONFIRE LIT
+              <h2 className="font-[Optimus] text-5xl md:text-8xl tracking-[0.25em] text-yellow-200 drop-shadow-[0_0_20px_rgba(255,200,120,0.8)] text-center leading-tight">
+                <span className="block md:inline">BONFIRE</span>
+                <span className="block md:inline md:ml-6">LIT</span>
               </h2>
             </motion.div>
           )}
@@ -331,7 +332,42 @@ useEffect(() => {
 
           {showPaths && (
             <>
-              <div className="absolute inset-0 z-20">
+              {/* MOBILE */}
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1 }}
+                className="absolute bottom-24 z-20 flex flex-col items-center gap-5 md:hidden font-[Optimus] tracking-[0.2em] text-gray-300"
+              >
+                <button onClick={() => navigate("/projects")} className="hover:text-yellow-300 transition">
+                  TRAVERSE THE FOG
+                </button>
+
+                <button onClick={() => navigate("/about")} className="hover:text-yellow-300 transition">
+                  VIEW CHARACTER
+                </button>
+
+                <button onClick={() => navigate("/contact")} className="hover:text-yellow-300 transition">
+                  SUMMON SIGN
+                </button>
+
+                <button
+                  onClick={() => {
+                    setFogActive(true);
+                    setTimeout(() => {
+                      setFogActive(false);
+                      setShowPaths(false);
+                      setShowMenu(true);
+                    }, 1200);
+                  }}
+                  className="mt-6 text-sm text-gray-500 hover:text-white transition"
+                >
+                  LEAVE BONFIRE
+                </button>
+              </motion.div>
+
+              {/* DESKTOP */}
+              <div className="hidden md:block absolute inset-0 z-20">
                 {/* Projects / topo */}
                 <motion.button
                   initial={{ opacity: 0, y: -20 }}
@@ -374,13 +410,13 @@ useEffect(() => {
                   SUMMON SIGN
                 </motion.button>
               </div>
-
+              
               {/* botão separado e centralizado */}
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 1 }}
-                className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20"
+                className="hidden md:block absolute bottom-12 left-1/2 -translate-x-1/2 z-20"
               >
                 <button
                   className="font-[Optimus] text-sm tracking-[0.2em] text-gray-500 hover:text-white transition"

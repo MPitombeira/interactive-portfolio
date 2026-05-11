@@ -78,8 +78,8 @@ export default function About() {
         Mateus Pitombeira
       </h1>
 
-      <h2 className={`text-xl mb-6 ${colors[path]?.replace("bg", "text")}`}>
-        {path ? classes[path] : "Hollow Developer"}
+      <h2 className="text-xl mb-6 ">
+        Hollow Developer
       </h2>
 
       <div className="w-full max-w-md mb-8">

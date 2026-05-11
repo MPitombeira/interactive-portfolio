@@ -18,8 +18,8 @@ export default function Contact() {
       setCopied(false);
     }, 1500);
   };
-  const lang = "en";
-  const t = translations[lang];
+  const { language } = useLanguage();
+  const t = translations[language];
 
   return (
     <div className="min-h-screen text-white flex flex-col items-center justify-center px-6">
