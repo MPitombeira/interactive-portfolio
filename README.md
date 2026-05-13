@@ -1,10 +1,8 @@
 <h1 align="center">
-  Soulslike Portfolio
+  Interactive Portfolio
 </h1>
 
-<p align="center">
-  Interactive developer portfolio inspired by atmospheric RPG interfaces.
-</p>
+Interactive developer portfolio inspired by atmospheric RPG interfaces.
 
 Built as an immersive web experience using Next.js, React, TailwindCSS and Framer Motion.
 
@@ -35,10 +33,9 @@ Built as an immersive web experience using Next.js, React, TailwindCSS and Frame
 
 ---
 
-[ screenshots ]
 ## Home
 
-<img src="readme/home.PNG" width="700" />
+![home Screen](readme/home.PNG)
 
 ## Initial Screen
 
