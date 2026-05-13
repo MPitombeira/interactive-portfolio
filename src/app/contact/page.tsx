@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/lib/translations";
 import ReturnToBonfireButton from "@/components/ReturnToBonfireButton";
+import SoapstoneMessage from "@/components/SoapstoneMessage";
 
 export default function Contact() {
 
@@ -91,7 +92,15 @@ export default function Contact() {
           </a>
         </div>
       </div>
+      
+      <SoapstoneMessage
+        text="try summoning"
+        image="/images/soapstone.png"
+        className="top-[90%] left-[05%]"
+      /> 
+      
       <ReturnToBonfireButton />
+
     </div>
   );
 }

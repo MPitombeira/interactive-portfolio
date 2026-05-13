@@ -4,11 +4,14 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import FogTransition from "@/components/FogTransition";
 import { playSound } from "@/lib/sound";
+import { useLanguage } from "@/context/LanguageContext";
+import { translations } from "@/lib/translations";
 
 export default function ReturnToBonfireButton() {
   const router = useRouter();
   const [fogActive, setFogActive] = useState(false);
-
+  const { language } = useLanguage();
+  const t = translations[language];
   const handleReturn = () => {
     playSound("/sounds/bonfireLit.mp3", 0.3);
 
@@ -23,9 +26,17 @@ export default function ReturnToBonfireButton() {
     <>
       <button
         onClick={handleReturn}
-        className="fixed bottom-6 left-1/2 z-40 -translate-x-1/2 font-[Optimus] text-sm tracking-[0.2em] text-gray-500 transition hover:text-white"
+        className="
+          mx-auto mt-12 block w-fit
+     
+          px-4 py-2
+          font-[Optimus] text-xs tracking-[0.15em] text-gray-400
+          backdrop-blur-sm transition hover:text-white
+
+          md:fixed md:bottom-6 md:left-1/2 md:z-40 md:mt-0 md:-translate-x-1/2
+        "
       >
-        RETURN TO BONFIRE
+        {t.returnbonfire}
       </button>
 
       <FogTransition active={fogActive} />

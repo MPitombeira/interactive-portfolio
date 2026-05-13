@@ -26,9 +26,22 @@ export default function SoundControl() {
   return (
     <button
       onClick={() => setMuted(!muted)}
-      className="fixed top-6 right-6 z-50 text-sm text-gray-400 hover:text-white transition font-[Optimus]"
+      className="opacity-70 transition hover:opacity-100 hover:scale-110"
+      aria-label={muted ? "Unmute sound" : "Mute sound"}
     >
-      {muted ? "🔇" : "🔊"}
+      {muted ? (
+        <img
+          src="/icons/mute.png"
+          alt="Muted"
+          className="w-7 h-7 rounded-full"
+        />
+      ) : (
+        <img
+          src="/icons/som.png"
+          alt="Sound on"
+          className="w-7 h-7 rounded-full"
+        />
+      )}
     </button>
   );
 }

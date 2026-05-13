@@ -3,10 +3,13 @@
 import { motion } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import FogTransition from "@/components/FogTransition";
+import SoapstoneMessage from "@/components/SoapstoneMessage";
 import { useRouter } from "next/navigation";
 import { useTransition } from "@/context/TransitionContext";
 import { useSearchParams } from "next/navigation";
 import { playSound } from "@/lib/sound";
+import { useLanguage } from "@/context/LanguageContext";
+import { translations } from "@/lib/translations";
 
 export default function Home() {
   const [stage, setStage] = useState<"start" | "bonfire">("start");
@@ -22,6 +25,8 @@ export default function Home() {
   const holdInterval = useRef<NodeJS.Timeout | null>(null);
   const { navigate } = useTransition();
   const searchParams = useSearchParams();
+  const { language } = useLanguage();
+  const t = translations[language];
 
   const playClick = () => {
     playSound("/sounds/dark-souls-item-get.mp3", 0.35);
@@ -184,7 +189,7 @@ useEffect(() => {
             animate={{ opacity: 1 }}
             transition={{ delay: 1.5 }}
           >
-            PRESS ANY KEY
+            {t.pressKey}
           </motion.button>
         </>
       )}
@@ -275,7 +280,7 @@ useEffect(() => {
 
             {!bonfireLit && (
               <p className="mt-5 font-[Optimus] text-sm tracking-[0.2em] text-gray-400">
-                {isHolding ? "LIGHTING..." : "HOLD TO LIGHT BONFIRE"}
+                {isHolding ? t.lighting : t.holdToLight}
               </p>
             )}
 
@@ -314,7 +319,7 @@ useEffect(() => {
                   }}
                   className="text-lg md:text-2xl text-gray-200 transition hover:scale-105 hover:text-yellow-300"
                 >
-                  REST AT BONFIRE
+                  {t.bonfireRest}
                 </button>
 
                 <button
@@ -324,7 +329,7 @@ useEffect(() => {
                   }}
                   className="text-sm text-gray-500 transition hover:text-white"
                 >
-                  QUIT GAME
+                  {t.quitGame}
                 </button>
               </div>
             </motion.div>
@@ -340,15 +345,15 @@ useEffect(() => {
                 className="absolute bottom-24 z-20 flex flex-col items-center gap-5 md:hidden font-[Optimus] tracking-[0.2em] text-gray-300"
               >
                 <button onClick={() => navigate("/projects")} className="hover:text-yellow-300 transition">
-                  TRAVERSE THE FOG
+                  {t.traverseFog}
                 </button>
 
                 <button onClick={() => navigate("/about")} className="hover:text-yellow-300 transition">
-                  VIEW CHARACTER
+                  {t.viewCharacter}
                 </button>
 
                 <button onClick={() => navigate("/contact")} className="hover:text-yellow-300 transition">
-                  SUMMON SIGN
+                  {t.summonSign}
                 </button>
 
                 <button
@@ -362,9 +367,11 @@ useEffect(() => {
                   }}
                   className="mt-6 text-sm text-gray-500 hover:text-white transition"
                 >
-                  LEAVE BONFIRE
+                  {t.leaveBonfire}
                 </button>
               </motion.div>
+
+
 
               {/* DESKTOP */}
               <div className="hidden md:block absolute inset-0 z-20">
@@ -379,7 +386,7 @@ useEffect(() => {
                     setTimeout(() => navigate("/projects"), 200);
                   }}
                 >
-                  TRAVERSE THE FOG
+                  {t.traverseFog}
                 </motion.button>
 
                 {/* About / esquerda */}
@@ -393,7 +400,7 @@ useEffect(() => {
                     setTimeout(() => navigate("/about"), 200);
                   }}
                 >
-                  VIEW CHARACTER
+                  {t.viewCharacter}
                 </motion.button>
 
                 {/* Contact / direita */}
@@ -407,10 +414,17 @@ useEffect(() => {
                     setTimeout(() => navigate("/contact"), 200);
                   }}
                 >
-                  SUMMON SIGN
+                  {t.summonSign}
                 </motion.button>
+
+                              
+                <SoapstoneMessage
+                  text="don't give up, skeleton"
+                  image="/images/soapstone.png"
+                  className="top-[60%] left-[56%]"
+                />
+                
               </div>
-              
               {/* botão separado e centralizado */}
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
@@ -430,7 +444,7 @@ useEffect(() => {
                     }, 1200);
                   }}
                 >
-                  LEAVE BONFIRE
+                  {t.leaveBonfire}
                 </button>
               </motion.div>
             </>

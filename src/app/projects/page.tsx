@@ -1,90 +1,109 @@
 "use client";
 
+import ReturnToBonfireButton from "@/components/ReturnToBonfireButton";
+import SoapstoneMessage from "@/components/SoapstoneMessage";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/lib/translations";
 import { useEffect, useState } from "react";
-import { useXP } from "@/context/XPContext";
-import ReturnToBonfireButton from "@/components/ReturnToBonfireButton";
 
 export default function Projects() {
   const { language } = useLanguage();
   const t = translations[language];
-  const statusStyles: any = {
-    completed:
-      "border-green-500 text-green-400 shadow-[0_0_15px_rgba(0,255,0,0.5)]",
-    inProgress:
-      "border-yellow-500 text-yellow-400 shadow-[0_0_15px_rgba(255,255,0,0.5)]",
-  };
+  const projects = t.projectsList;
 
-  const { quests, completeQuest } = useXP();
-  const [visible, setVisible] = useState(false);
-  const [completedIndex, setCompletedIndex] = useState<number | null>(null);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setVisible(true);
-    }, 300); // delay pequeno
-
-    return () => clearTimeout(timer);
-  }, []);
+const statusStyles: Record<string, string> = {
+  completed: "text-green-400 border-green-500/60",
+  inProgress: "text-yellow-400 border-yellow-500/60",
+  planned: "text-blue-400 border-blue-500/60",
+};
 
   return (
-    <div className="min-h-screen text-white px-6 py-12">
-      <h1 className="text-4xl mb-10 text-center">{t.quests}</h1>
+    <main className="min-h-screen bg-black text-white px-6 py-16">
+      <section className="mx-auto max-w-5xl">
+        <h1 className="mb-4 text-center font-[Optimus] text-4xl tracking-[0.2em]">
+          {t.projectsTitle}
+        </h1>
 
-      <div className="max-w-2xl mx-auto space-y-6">
-        {quests.map((quest, index) => (
-          <div
-            key={index}
-              className={`border p-6 rounded-lg transition transform hover:scale-105
-                ${statusStyles[quest.status]}
-                ${
-                  completedIndex === index
-                    ? "animate-pulse border-yellow-400 shadow-[0_0_20px_rgba(255,215,0,0.8)]"
-                    : ""
-                }
-              transition-all duration-700
-              ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}
-            `}
-            style={{
-              transitionDelay: `${index * 150}ms`,
-            }}
-          >
-            <h2 className="text-2xl mb-2">
-              Quest {index + 1}: {quest.title}
-            </h2>
+        <SoapstoneMessage
+          text="Likely JavaScript"
+          image="/images/soapstone.png"
+          className="top-[15%] left-[85%]"
+        /> 
 
-            <p className="text-gray-400 mb-4">{quest.description}</p>
+        <p className="mx-auto mb-12 max-w-2xl text-center text-gray-400 leading-relaxed">
+          {t.projectsIntro}
+        </p>
 
-            <div className="flex justify-between text-sm">
-              <span>
-                {t.status}: {t[quest.status]}
-              </span>
-              <span>{quest.xp}</span>
-            </div>
-
-            {/* linha estilo RPG */}
-            <div className="mt-4 h-[2px] bg-gray-700 relative overflow-hidden">
-              <div className="absolute inset-0 bg-white opacity-20 animate-pulse"></div>
-            </div>
-
-            <button
-              onClick={() => {
-                completeQuest(index);
-                setCompletedIndex(index);
-
-                setTimeout(() => {
-                  setCompletedIndex(null);
-                }, 1000);
-              }}
-              className="mt-4 px-3 py-1 border border-yellow-500 text-yellow-400 rounded hover:bg-yellow-500 hover:text-black transition"
+        <div className="grid gap-6 md:grid-cols-2">
+          {projects.map((project, index) => (
+            <article
+              key={project.title}
+              className="rounded-lg border border-gray-800 bg-black/40 p-6 transition-all duration-500 hover:-translate-y-1 hover:border-yellow-400/70 hover:shadow-[0_0_20px_rgba(255,200,120,0.12)]"
             >
-              Complete Quest
-            </button>
-          </div>
-        ))}
-      </div>
+              <div className="mb-4 flex items-start justify-between gap-4">
+                <h2 className="font-[Optimus] text-2xl tracking-wide text-gray-100">
+                  {t.quest} {index + 1}: {project.title}
+                </h2>
+
+                <span
+                  className={`shrink-0 rounded-full border px-3 py-1 text-xs ${
+                    statusStyles[project.status]
+
+                  }`}
+                >
+                  
+                  {t.projectStatus[project.status as keyof typeof t.projectStatus]}
+                </span>
+              </div>
+                 
+                 
+              <p className="mb-5 text-gray-400 leading-relaxed">
+                {project.description}
+              </p>
+
+              <div className="mb-5 flex flex-wrap gap-2">
+                {project.stack.map((tech) => (
+                  <span
+                    key={tech}
+                    className="rounded border border-gray-700 px-2 py-1 text-xs text-gray-300"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              <div className="flex gap-4 text-sm">
+                {project.github ? (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    className="text-yellow-300 transition hover:text-yellow-100"
+                  >
+                    GitHub
+                  </a>
+                ) : (
+                  <span className="text-gray-600">GitHub soon</span>
+                )}
+
+                {project.demo ? (
+                  <a
+                    href={project.demo}
+                    target="_blank"
+                    className="text-yellow-300 transition hover:text-yellow-100"
+                  >
+                    Live Demo
+                  </a>
+                ) : (
+                  <span className="text-gray-600">Demo soon</span>
+                )}
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <ReturnToBonfireButton />
-    </div>
+    </main>
   );
+
 }

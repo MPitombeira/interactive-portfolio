@@ -8,6 +8,22 @@ export const translations = {
     travel: "Travel",
     summon: "Summon",
     character: "Character",
+    returnbonfire: "RETURN TO BONFIRE",
+    traverseFog: "TRAVERSE THE FOG",
+    viewCharacter: "VIEW CHARACTER",
+    summonSign: "SUMMON SIGN",
+    leaveBonfire: "LEAVE BONFIRE",
+    bonfireRest: "REST AT BONFIRE",
+    quitGame: "QUIT GAME",
+    pressKey: "PRESS ANY KEY",
+    holdToLight: "HOLD TO LIGHT BONFIRE",
+    lighting: "LIGHTING...",
+
+    transition1: "Returning to Bonfire...",
+    transition2: "Viewing Character...",
+    transition3: "Traveling to...",
+    transition4: "Summoning...",
+    transition5: "Entering Area...",
     //
 
     //about
@@ -44,10 +60,58 @@ export const translations = {
     //
 
     // projects
-    quests: "Quests",
-    status: "Status",
-    completed: "Completed",
-    inProgress: "In Progress",
+    projectsTitle: "Quests",
+    projectsIntro:
+      "A collection of completed, ongoing, and planned projects focused on backend development, interactive interfaces, and modern web technologies.",
+    quest: "Quest",
+    githubSoon: "GitHub soon",
+    demoSoon: "Demo soon",
+    liveDemo: "Live Demo",
+
+    projectStatus: {
+      completed: "Completed",
+      inProgress: "In Progress",
+      planned: "Planned",
+    },
+
+    projectsList: [
+      {
+        title: "Interactive Portfolio",
+        status: "completed",
+        description:
+          "A game-inspired personal portfolio built as an immersive web experience, featuring interactive navigation, animated transitions, ambient sound, and bilingual content.",
+        stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion"],
+        github: "https://github.com/MPitombeira/interactive-portfolio",
+        demo: "",
+      },
+      {
+        title: "Fleet Management API",
+        status: "inProgress",
+        description:
+          "A .NET backend project focused on simulating equipment and logistics management, inspired by real-world industrial and fleet operations.",
+        stack: [".NET", "C#", "SQL Server", "REST API"],
+        github: "",
+        demo: "",
+      },
+      {
+        title: "React Native Mobile App",
+        status: "planned",
+        description:
+          "A mobile application study project focused on building cross-platform interfaces and improving React Native development skills.",
+        stack: ["React Native", "TypeScript"],
+        github: "",
+        demo: "",
+      },
+      {
+        title: "Java Backend Project",
+        status: "planned",
+        description:
+          "A Java backend study project focused on object-oriented programming, API design, and backend architecture fundamentals.",
+        stack: ["Java", "Spring Boot", "REST API"],
+        github: "",
+        demo: "",
+      },
+    ],
     //
 
     // contacts
@@ -65,6 +129,23 @@ export const translations = {
     levelUp: "Subir de Nivel",
     travel: "Viajar",
     summon: "Invocar",
+    returnbonfire: "RETORNAR A FOGUEIRA",
+    traverseFog: "ATRAVESSE A NEBLINA",
+    viewCharacter: "VER PERSONAGEM",
+    summonSign: "SINAL DE INVOCACÃO",
+    leaveBonfire: "DEIXAR FOGUEIRA",
+    bonfireRest: "DESCANSE NA FOGUEIRA",
+    quitGame: "SAIR DO JOGO",
+    pressKey: "PRESSIONE QUALQUER TECLA",
+    holdToLight: "SEGURE PARA ACENDER A FOGUEIRA",
+    lighting: "ACENDENDO...",
+
+    transition1: "Voltando à Fogueira...",
+    transition2: "Visualizando personagem...",
+    transition3: "Viajando para...",
+    transition4: "Invocando...",
+    transition5: "Entrando na área...",
+
     //
 
     //  about
@@ -100,10 +181,57 @@ export const translations = {
     //
 
     // projects
-    quests: "Missões",
-    status: "Status",
-    completed: "Concluído",
-    inProgress: "Em Progresso",
+    projectsTitle: "Quests",
+    projectsIntro:
+      "Uma coleção de projetos concluídos, em andamento e planejados, com foco em desenvolvimento backend, interfaces interativas e tecnologias web modernas.",
+    quest: "Quest",
+    githubSoon: "GitHub em breve",
+    demoSoon: "Demo em breve",
+    liveDemo: "Demo",
+    projectStatus: {
+      completed: "Concluído",
+      inProgress: "Em andamento",
+      planned: "Planejado",
+    },
+
+    projectsList: [
+      {
+        title: "Portfólio Interativo",
+        status: "completed",
+        description:
+          "Um portfólio pessoal inspirado em jogos, construído como uma experiência web imersiva, com navegação interativa, transições animadas, som ambiente e conteúdo bilíngue.",
+        stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion"],
+        github: "https://github.com/MPitombeira/interactive-portfolio",
+        demo: "",
+      },
+      {
+        title: "API de Gerenciamento de Frota",
+        status: "inProgress",
+        description:
+          "Um projeto backend em .NET focado em simular gerenciamento de equipamentos e operações logísticas, inspirado em cenários industriais reais.",
+        stack: [".NET", "C#", "SQL Server", "REST API"],
+        github: "",
+        demo: "",
+      },
+      {
+        title: "Aplicativo Mobile em React Native",
+        status: "planned",
+        description:
+          "Um projeto de estudo mobile focado em construir interfaces multiplataforma e melhorar habilidades com React Native.",
+        stack: ["React Native", "TypeScript"],
+        github: "",
+        demo: "",
+      },
+      {
+        title: "Projeto Backend em Java",
+        status: "planned",
+        description:
+          "Um projeto de estudo backend em Java focado em programação orientada a objetos, design de APIs e fundamentos de arquitetura backend.",
+        stack: ["Java", "Spring Boot", "REST API"],
+        github: "",
+        demo: "",
+      },
+    ],
     //
 
     // contacts

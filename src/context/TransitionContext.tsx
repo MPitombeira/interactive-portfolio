@@ -3,6 +3,8 @@
 import { createContext, useContext, useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
+import { translations } from "@/lib/translations";
 
 type TransitionContextType = {
   navigate: (path: string) => void;
@@ -14,16 +16,18 @@ export function TransitionProvider({ children }: { children: React.ReactNode }) 
   const router = useRouter();
   const [transitioning, setTransitioning] = useState(false);
   const [message, setMessage] = useState("Entering Area...");
+  const { language } = useLanguage();
+  const t = translations[language];
 
   const navigate = (path: string) => {
-    const messages: any = {
-      "/": "Returning to Bonfire...",
-      "/about": "Viewing Character...",
-      "/projects": "Traveling to...",
-      "/contact": "Summoning...",
+    const messages: Record<string, string> = {
+      "/": t.transition1,
+      "/about": t.transition2,
+      "/projects": t.transition3,
+      "/contact": t.transition4,
     };
 
-    setMessage(messages[path] || "Entering Area...");
+    setMessage(messages[path] || t.transition5);
     setTransitioning(true);
 
     setTimeout(() => {

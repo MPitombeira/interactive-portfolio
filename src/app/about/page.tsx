@@ -5,6 +5,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/lib/translations";
 import { useXP } from "@/context/XPContext";
 import ReturnToBonfireButton from "@/components/ReturnToBonfireButton";
+import SoapstoneMessage from "@/components/SoapstoneMessage";
 
 export default function About() {
   const { path } = usePath();
@@ -67,7 +68,7 @@ export default function About() {
           `}
         >
           <img
-            src="/images/me.jfif"
+            src="/images/avatar2.jfif"
             alt="avatar"
             className="w-full h-full object-cover"
           />
@@ -240,7 +241,7 @@ export default function About() {
           <h2 className="text-2xl mb-4 text-yellow-400">{t.playlist}</h2>
 
           <iframe
-            src="https://open.spotify.com/embed/playlist/11Dcs0DhQddZcPeSrd5QqD?si=9437cbb30eb945b7"
+            src="https://open.spotify.com/embed/playlist/1R3Eajxl1MGbukOI0sv29K?si=e61fe3cc5f34473d"
             data-testid="embed-iframe"
             width="100%"
             height="352"
@@ -266,6 +267,18 @@ export default function About() {
             </p>  
         </div>
       </div>
+
+      <SoapstoneMessage
+        text="developer ahead"
+        image="/images/soapstone.png"
+        className="top-[50%] left-[30%]"
+      /> 
+
+      <SoapstoneMessage
+        text="Praise the Sun! Essential person ahead"
+        image="/images/soapstone.png"
+        className="top-[218%] left-[55%]"
+      /> 
       <ReturnToBonfireButton />
     </div>
   );
