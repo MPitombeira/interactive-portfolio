@@ -26,7 +26,7 @@ export default function Contact() {
     <div className="min-h-screen text-white flex flex-col items-center justify-center px-6">
       {/* TÍTULO */}
       <h2 className="text-3xl mb-4 tracking-wide text-gray-200">
-        {t.summon}
+        {t.summonSignLowerCase}
       </h2>
 
       {/* SÍMBOLO */}

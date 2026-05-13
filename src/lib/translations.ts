@@ -155,7 +155,7 @@ export const translations = {
     //
 
     // contacts
-    summon: "Summon Sign",
+    summonSignLowerCase: "Summon Sign",
     copied: "copied to clipboard",
     contactText:
       "If you seek collaboration, opportunities, or wish to connect, you may summon me through the channels below.",
@@ -317,7 +317,7 @@ export const translations = {
     //
 
     // contacts
-    summon: "Sinal de Invocação",
+    summonSignLowerCase: "Sinal de Invocação",
     copied: "copiado para a área de transferência",
     contactText:
       "Se você busca colaboração, oportunidades ou deseja entrar em contato, você pode me invocar pelos canais abaixo:",
