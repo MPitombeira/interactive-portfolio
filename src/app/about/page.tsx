@@ -132,7 +132,9 @@ export default function About() {
                 <h2 className="mb-3 font-[Optimus] text-xl tracking-[0.12em] text-yellow-300">
                   Visuals & Art
                 </h2>
-
+              <p className="leading-relaxed text-gray-400">
+                  {t.websitedescription}
+              </p>
                 <p className="leading-relaxed text-gray-400">
                   {t.visualArt}{" "}
                   <a

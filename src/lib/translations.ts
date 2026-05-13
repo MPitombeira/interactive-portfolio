@@ -31,7 +31,7 @@ export const translations = {
     aboutText1: "I have worked across both back-end and front-end development, implementing features, creating responsive interfaces, integrating APIs, and contributing to scalable solutions.",
     aboutText2: "For four years at RadiusNet, I contributed to the maintenance and evolution of a management system for internet service providers, using PHP, Yii Framework, and MySQL. My work included bug fixing, feature improvements, and ongoing application support.",
     aboutText3: "Prior to that, I worked at 2U, where I was responsible for maintaining and improving multiple web systems.",
-
+    websitedescription:  "This is a personal portfolio inspired by Dark souls a game by FromSoftware, Inc.",
     stats: {
       UI: "UI",
       UX: "UX",
@@ -195,6 +195,7 @@ export const translations = {
 
     aboutText2: "Durante quatro anos na RadiusNet, trabalhei na manutenção e evolução de um sistema de gestão para provedores de internet, utilizando PHP, Yii Framework e MySQL. Minhas atividades incluíam correção de bugs, melhorias e suporte contínuo da aplicação.",
     aboutText3: "Antes disso, trabalhei na 2U, onde fui responsável pela manutenção e evolução de diversos sistemas web.",
+    websitedescription:  "Este é um portfólio pessoal inspirado em Dark souls um jogo pela FromSoftware, Inc.",
 
     stats: {
       UI: "Interface",
