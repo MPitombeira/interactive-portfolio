@@ -20,7 +20,7 @@ export default function Contact() {
     }, 1500);
   };
   const { language } = useLanguage();
-  const t = translations[language];
+  const t = translations[language as keyof typeof translations];
 
   return (
     <div className="min-h-screen text-white flex flex-col items-center justify-center px-6">

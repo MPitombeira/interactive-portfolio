@@ -26,7 +26,7 @@ export default function Home() {
   const { navigate } = useTransition();
   const searchParams = useSearchParams();
   const { language } = useLanguage();
-  const t = translations[language];
+  const t = translations[language as keyof typeof translations];
 
   const playClick = () => {
     playSound("/sounds/dark-souls-item-get.mp3", 0.35);

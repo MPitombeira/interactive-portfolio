@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 
 export default function Projects() {
   const { language } = useLanguage();
-  const t = translations[language];
+  const t = translations[language as keyof typeof translations];
   const projects = t.projectsList;
 
 const statusStyles: Record<string, string> = {

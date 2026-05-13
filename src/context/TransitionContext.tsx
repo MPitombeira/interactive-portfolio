@@ -17,7 +17,7 @@ export function TransitionProvider({ children }: { children: React.ReactNode }) 
   const [transitioning, setTransitioning] = useState(false);
   const [message, setMessage] = useState("Entering Area...");
   const { language } = useLanguage();
-  const t = translations[language];
+  const t = translations[language as keyof typeof translations];
 
   const navigate = (path: string) => {
     const messages: Record<string, string> = {

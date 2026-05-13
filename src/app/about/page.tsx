@@ -8,7 +8,7 @@ import SoapstoneMessage from "@/components/SoapstoneMessage";
 
 export default function About() {
   const { language } = useLanguage();
-  const t = translations[language];
+  const t = translations[language as keyof typeof translations];
   const accentColor =
   "bg-yellow-400";
 

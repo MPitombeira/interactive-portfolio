@@ -11,7 +11,7 @@ export default function ReturnToBonfireButton() {
   const router = useRouter();
   const [fogActive, setFogActive] = useState(false);
   const { language } = useLanguage();
-  const t = translations[language];
+  const t = translations[language as keyof typeof translations];
   const handleReturn = () => {
     playSound("/sounds/bonfireLit.mp3", 0.3);
 
