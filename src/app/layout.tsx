@@ -4,7 +4,6 @@ import UIOverlay from "@/components/UIOverlay";
 import ThemeWrapper from "@/components/ThemeWrapper";
 import { TransitionProvider } from "@/context/TransitionContext";
 import { LanguageProvider } from "@/context/LanguageContext";
-import { XPProvider } from "@/context/XPContext";
 
 export default function RootLayout({
   children,
@@ -14,18 +13,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <XPProvider>
-          <LanguageProvider>
-            <PathProvider>
-              <TransitionProvider>
-                <ThemeWrapper>
-                  {children}
-                  <UIOverlay />
-                </ThemeWrapper>
-              </TransitionProvider>
-            </PathProvider>
-          </LanguageProvider>
-        </XPProvider>
+        <LanguageProvider>
+          <PathProvider>
+            <TransitionProvider>
+              <ThemeWrapper>
+                {children}
+                <UIOverlay />
+              </ThemeWrapper>
+            </TransitionProvider>
+          </PathProvider>
+
+        </LanguageProvider>
       </body>
     </html>
   );
