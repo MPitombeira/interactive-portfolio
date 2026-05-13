@@ -38,7 +38,7 @@ Built as an immersive web experience using Next.js, React, TailwindCSS and Frame
 [ screenshots ]
 ## Home
 
-![Home Screen](public/readme/home.png)
+<img src="public/readme/home.png" width="700" />
 
 ## Initial Screen
 
