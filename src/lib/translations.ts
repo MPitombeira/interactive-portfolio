@@ -43,7 +43,7 @@ export const translations = {
       Creativity: "Creativity",
       Animation: "Animation",
     },
-    level: "Nível",
+    level: "Level",
     xp: "XP",
     experience: "Experience",
     study: "Currently studyings",
@@ -56,7 +56,47 @@ export const translations = {
     beyondCode: "Beyond Code",
     beyondCodeText: `Outside of coding, I enjoy games, mostly single-player (especially Souls-like), music, hiking and exploring creative ideas that can later become projects.`,
     visualArt: "Original artwork created by",
+    favoriteGames: "Favorite Games",
+    progressLevel: "Progress to Level",
+    souls: "Souls",
+    atributes1: "Problem Solving",
+    atributes2: "Databases",
+    experienceJobs: [
+      {
+        company: "RadiusNet",
+        type: "Full-time · 4 yrs 1 mo · On-site",
 
+        roles: [
+          {
+            title: "Senior Development Analyst",
+            period: "Feb 2023 - Nov 2025 · 2 yrs 10 mos",
+            description:
+              "Worked on bug fixing, feature improvements, and system maintenance using PHP (Yii Framework) and Ext JS. Also contributed to mentoring junior developers and improving internal workflows.",
+          },
+
+          {
+            title: "Junior Development Analyst",
+            period: "Nov 2021 - Feb 2023 · 1 yr 4 mos",
+            description:
+              "Worked on the development and maintenance of an ISP management system, implementing bug fixes, integrations, and new features focused on scalability and reliability.",
+          },
+        ],
+      },
+
+      {
+        company: "2U Tecnologia",
+        type: "Full-stack Developer",
+
+        roles: [
+          {
+            title: "Full-stack Developer",
+            period: "Jul 2020 - Oct 2021 · 1 yr 4 mos",
+            description:
+              "Worked on web application maintenance and improvements, contributing to both frontend and backend development across multiple projects and systems.",
+          },
+        ],
+      },
+    ],
     //
 
     // projects
@@ -167,7 +207,7 @@ export const translations = {
       Creativity: "Criatividade",
       Animation: "Animação",
     },
-    level: "Level",
+    level: "Nível",
     xp: "XP",
     experience: "Experiência",
     study: "Estudando",
@@ -178,6 +218,47 @@ export const translations = {
     beyondCode: "Alem do Código",
     beyondCodeText: `Além de codar, gosto de jogar, principalmente jogos single-player (especialmente Souls-like), música, caminhadas e exploração de ideias criativas que mais tarde podem se tornar projetos divertidos.`,
     visualArt: "Arte original criada por",
+    favoriteGames: "Jogos Favoritos",
+    progressLevel: "Progresso para o nível",
+    souls: "Almas",
+    atributes1: "Resolução de Problemas",
+    atributes2: "Banco de Dados",
+    experienceJobs: [
+      {
+        company: "RadiusNet",
+        type: "Full-time · 4 anos 1 mês · Presencial",
+
+        roles: [
+          {
+            title: "Analista de Desenvolvimento Pleno",
+            period: "Fev 2023 - Nov 2025 · 2 anos 10 meses",
+            description:
+              "Atuei na correção de bugs, melhorias e manutenção de sistemas utilizando PHP (Yii Framework) e Ext JS. Também contribuí com orientação de desenvolvedores juniores e melhorias em fluxos internos.",
+          },
+
+          {
+            title: "Analista de Desenvolvimento Jr",
+            period: "Nov 2021 - Fev 2023 · 1 ano 4 meses",
+            description:
+              "Atuei no desenvolvimento e manutenção de um sistema de gestão para provedores de internet, realizando correções, integrações e implementação de novas funcionalidades focadas em escalabilidade e confiabilidade.",
+          },
+        ],
+      },
+
+      {
+        company: "2U Tecnologia",
+        type: "Desenvolvedor Full-stack",
+
+        roles: [
+          {
+            title: "Desenvolvedor Full-stack",
+            period: "Jul 2020 - Out 2021 · 1 ano 4 meses",
+            description:
+              "Trabalhei na manutenção e evolução de aplicações web, contribuindo tanto no frontend quanto no backend em diferentes projetos e sistemas.",
+          },
+        ],
+      },
+    ],
     //
 
     // projects
