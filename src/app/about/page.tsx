@@ -67,7 +67,7 @@ export default function About() {
   ];
 
   const tabs = [
-    { id: "lore", label: t.lore || "Lore" },
+    { id: "lore", label: "Lore" },
     { id: "experience", label: t.experience },
     { id: "skills", label: "Skills" },
     { id: "beyond", label: t.beyondCode },
