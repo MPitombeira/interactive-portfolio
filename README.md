@@ -31,7 +31,7 @@ Built as an immersive web experience using Next.js, React, TailwindCSS and Frame
 
 ## Bonfire Interaction
 
-![Bonfire GIF](public/readme/bonfire.gif)
+![Bonfire GIF](public/readme/project_gif.gif)
 
 ---
 
