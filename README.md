@@ -38,19 +38,19 @@ Built as an immersive web experience using Next.js, React, TailwindCSS and Frame
 [ screenshots ]
 ## Home
 
-<img src="readme/home.png" width="700" />
+<img src="readme/home.PNG" width="700" />
 
 ## Initial Screen
 
-![Initial Screen](readme/initial_screen.png)
+![Initial Screen](readme/initial_screen.PNG)
 
 ## Projects Screen
 
-![Projects Screen](readme/projects.png)
+![Projects Screen](readme/projects.PNG)
 
 ## About Screen
 
-![About Screen](readme/about.png)
+![About Screen](readme/about.PNG)
 
 
 
