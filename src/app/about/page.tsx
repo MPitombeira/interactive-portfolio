@@ -269,7 +269,7 @@ export default function About() {
                 <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
                   {[
                     { name: "Shadow of the Colossus", image: "/images/games/sotc.jpg" },
-                    { name: "Dark Souls", image: "/images/games/darksouls1.png" },
+                    { name: "Dark Souls", image: "/images/games/darksouls1.PNG" },
                     { name: "Terraria", image: "/images/games/terraria.jpg" },
                     { name: "Hades", image: "/images/games/Hades-Cover-Art.jpg" },
                     { name: "Final Fantasy VII", image: "/images/games/ff7.jpg" },
