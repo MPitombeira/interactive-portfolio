@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import FogTransition from "@/components/FogTransition";
 import SoapstoneMessage from "@/components/SoapstoneMessage";
 import { useRouter } from "next/navigation";
@@ -11,7 +11,7 @@ import { playSound } from "@/lib/sound";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/lib/translations";
 
-export default function Home() {
+function HomeContent() {
   const [stage, setStage] = useState<"start" | "bonfire">("start");
   const [bonfireLit, setBonfireLit] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
@@ -122,26 +122,26 @@ export default function Home() {
 
   const ambientRef = useRef<HTMLAudioElement | null>(null);
 
-useEffect(() => {
-  if (!bonfireLit) return;
+  useEffect(() => {
+    if (!bonfireLit) return;
 
-  const audio = new Audio("/sounds/Bonfire_Lit_Ambient_No_copyright.mp3");
-  audio.loop = true;
-  audio.volume = 0.1;
-  ambientRef.current = audio;
+    const audio = new Audio("/sounds/Bonfire_Lit_Ambient_No_copyright.mp3");
+    audio.loop = true;
+    audio.volume = 0.1;
+    ambientRef.current = audio;
 
-  const timeout = setTimeout(() => {
-    if (!(window as any).isMuted) {
-      audio.play().catch(() => {});
-    }
-  }, 1500);
+    const timeout = setTimeout(() => {
+      if (!(window as any).isMuted) {
+        audio.play().catch(() => {});
+      }
+    }, 1500);
 
-  return () => {
-    clearTimeout(timeout);
-    audio.pause();
-    audio.currentTime = 0;
-  };
-}, [bonfireLit]);
+    return () => {
+      clearTimeout(timeout);
+      audio.pause();
+      audio.currentTime = 0;
+    };
+  }, [bonfireLit]);
 
   useEffect(() => {
   const state = searchParams.get("state");
@@ -155,7 +155,7 @@ useEffect(() => {
     setIsHolding(false);
     setHoldProgress(0);
   }
-}, [searchParams]);
+  }, [searchParams]);
 
   return (
     <main className="min-h-screen overflow-hidden bg-black text-white flex flex-col items-center justify-center">
@@ -454,5 +454,13 @@ useEffect(() => {
         </motion.div>
       )}
     </main>
+  );
+}
+
+export default function Home() {
+  return (
+    <Suspense fallback={null}>
+      <HomeContent />
+    </Suspense>
   );
 }
